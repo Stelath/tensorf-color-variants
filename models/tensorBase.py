@@ -404,7 +404,7 @@ class TensorBase(torch.nn.Module):
         alpha = 1 - torch.exp(-sigma*length).view(xyz_locs.shape[:-1])
 
         return alpha
-
+    
 
     def forward(self, rays_chunk, white_bg=True, is_train=False, ndc_ray=False, N_samples=-1):
 
@@ -463,4 +463,7 @@ class TensorBase(torch.nn.Module):
             depth_map = depth_map + (1. - acc_map) * rays_chunk[..., -1]
 
         return rgb_map, depth_map, rgb, sigma, xyz_sampled # alpha, weight, bg_weight
+    
+    def get_variance():
+        pass
 
