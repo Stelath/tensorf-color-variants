@@ -464,6 +464,8 @@ class TensorBase(torch.nn.Module):
 
         return rgb_map, depth_map, rgb, sigma, xyz_sampled # alpha, weight, bg_weight
     
-    def get_variance():
-        pass
+    def get_variance(self, xyz, viewdirs):
+        app_features = self.compute_appfeature(xyz)
+        rgb = self.renderModule(xyz, viewdirs, app_features)
+        return rgb
 
