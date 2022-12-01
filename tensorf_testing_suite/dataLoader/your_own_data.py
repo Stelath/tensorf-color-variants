@@ -122,7 +122,7 @@ class YourOwnDataset(Dataset):
 
             img = self.all_rgbs[idx]
             rays = self.all_rays[idx]
-            mask = self.all_masks[idx] # for quantity evaluation
+            # mask = self.all_masks[idx] # for quantity evaluation
 
             sample = {'rays': rays,
                       'rgbs': img}
